@@ -1,6 +1,6 @@
 # Cal Poly AI Summer Camp: Interactive AI Chatbot with Streamlit
 
-Welcome to our AI Summer Camp! This project will teach you how to build a web-based AI chatbot using Streamlit and AWS Bedrock. You'll learn how to create an interactive chat interface that connects directly to Claude, allowing users to have natural conversations with AI through a beautiful web application.
+Welcome to our AI Summer Camp! This project will teach you how to build a web-based AI chatbot using Streamlit and AWS Bedrock.
 
 ## Contact Information
 
