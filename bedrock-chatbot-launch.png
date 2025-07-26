@@ -1,0 +1,129 @@
+# 🤖 AI Chatbot Launch Log – Phase 2: Running the App (Ryan's Repo)
+
+## ✅ What I Set Out to Do
+Run a functioning AI chatbot app locally using AWS Bedrock, based on Ryan Gertz’s public repository. This was part of my CCC AI Summer Camp prep to understand end-to-end deployment of a basic generative AI app.
+
+> 💡 **This chatbot was adapted from [Ryan Gertz's aws-bedrock-streamlit-chat](https://github.com/RyanGertz/aws-bedrock-streamlit-chat).**  
+> Big thanks to Ryan for the clean starter framework!
+
+---
+
+## 🧰 Tools I Used
+- Git + Git Bash
+- Python 3.13.1 (from [python.org](https://www.python.org/))
+- pip (Python package manager)
+- Visual Studio Code
+- AWS CLI (linked to Bedrock FMs)
+- Streamlit (chat UI)
+- Claude 3 model from Bedrock
+- ChatGPT (as my build coach 👩🏽‍💻)
+
+---
+
+## 🗂️ Project Source
+Repo forked from Ryan Gertz (original author):
+
+**Original Repo Credit:**  
+[https://github.com/RyanGertz/aws-bedrock-streamlit-chat](https://github.com/RyanGertz/aws-bedrock-streamlit-chat)
+
+**My Forked Version:**  
+[https://github.com/earlgreyhot1701D/aws-bedrock-streamlit-chat](https://github.com/earlgreyhot1701D/aws-bedrock-streamlit-chat)
+
+---
+
+## 🔍 Step-by-Step: What I Did
+
+### 🧱 Setup
+1. Cloned the repo from GitHub:
+   ```bash
+   git clone https://github.com/earlgreyhot1701D/aws-bedrock-streamlit-chat.git
+   ```
+
+2. Navigated into the repo:
+   ```bash
+   cd ~/ai-summercamp-scripts/aws-bedrock-streamlit-chat
+   ```
+
+3. Created a virtual environment:
+   ```bash
+   python -m venv .venv
+   ```
+
+4. Activated the environment:
+   ```bash
+   source .venv/Scripts/activate
+   ```
+
+5. Installed packages manually (no requirements.txt):
+   ```bash
+   pip install streamlit langchain boto3 python-dotenv
+   ```
+
+---
+
+### 🧠 Switched to Working Bedrock FM
+
+Original repo used a model ID I didn't have access to.
+
+I checked available models via AWS Console and found I had access to Claude 3 Sonnet.
+
+Updated `chat.py` with the correct model ID and region:
+
+```python
+bedrock_runtime = boto3.client(
+    service_name="bedrock-runtime",
+    region_name="us-east-1"
+)
+
+# Later in the file:
+modelId = "anthropic.claude-3-sonnet-20240229-v1:0"
+```
+
+---
+
+## ⚠️ What Went Wrong (and How I Fixed It)
+
+| Problem | Fix |
+|--------|-----|
+| Wrong AWS credentials copy-pasted | Used `aws configure` again, and discovered `Shift + Insert` to paste in Git Bash |
+| Model ID not accessible | Used Claude 3 model instead — updated `chat.py` |
+| Region mismatch error | Changed region in `chat.py` from `us-west-2` to `us-east-1` |
+| Signature error from AWS | Resynced system clock in Windows and fully restarted Git Bash |
+| Directory error in `cd` command | Located project path using File Explorer and pasted full Windows path with forward slashes |
+| Confusion on how to run project | Followed up with ChatGPT step-by-step, then used `streamlit run chat.py` successfully |
+
+---
+
+## ✅ Final Result
+
+🎉 The chatbot ran successfully in my browser at http://localhost:8501!
+
+I asked:
+
+```
+Can you explain jury duty in California?
+```
+
+And the Claude 3 model responded with a clear, legally sound explanation.
+
+![Simple AI Chatbot Screenshot](Simple%20AI%20Chatbot%20Installed.PNG)
+
+---
+
+## 🧠 Lessons Learned
+
+- Claude models work well via Bedrock but require correct region and permissions.
+- `Shift + Insert` pastes into Git Bash — game-changer!
+- Region and model access must match your AWS account settings.
+- It’s okay to not understand everything right away — following instructions patiently works.
+- ChatGPT and Ryan’s repo are powerful teacher–mentor combos.
+
+---
+
+## 🔁 Next Steps
+
+- Begin building **CCP Chatbot** (my own project)
+- Integrate legal knowledge sources (e.g. California Code of Civil Procedure)
+- Document RAG pipeline setup
+- Begin work on `README.md` and architecture notes for my version
+
