@@ -181,3 +181,10 @@ If you run into issues:
 ---
 
 Happy coding! 🚀
+
+---
+
+✍️ CCC AI Camp Learner Note (July 2025)
+
+Exploring this Streamlit interface helped me visualize how a Q&A chatbot could be prototyped for juror questions or internal self-service tools. Looking forward to applying this structure with Bedrock and a court-specific knowledge base.
+
